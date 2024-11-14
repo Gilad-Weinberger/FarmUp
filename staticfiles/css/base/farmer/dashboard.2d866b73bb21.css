@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+body {
+  background-color: #f5f3ee;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+}
+body .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+  text-align: center;
+}
+body .profile .profile-image {
+  height: 130px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+body .profile .name {
+  margin-top: 8px;
+  font-family: "Rubik", sans-serif;
+  color: black;
+  font-weight: 600;
+  font-size: 22px;
+}
+body .main {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  direction: rtl;
+  gap: 30px;
+}
+body .main .info {
+  width: calc(100vw - 90px);
+  height: 100px;
+  background-color: lightgray;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: black;
+  text-decoration: none;
+}
+body .main .info i {
+  font-size: 80px;
+}
+body .main .info img {
+  height: 80px;
+}
+body .main .info .text {
+  font-size: 30px;
+}/*# sourceMappingURL=dashboard.css.map */

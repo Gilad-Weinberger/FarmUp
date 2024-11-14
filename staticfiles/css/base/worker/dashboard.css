@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+body {
+  background-color: #f5f3ee;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+}
+body .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+  text-align: center;
+}
+body .profile .profile-image {
+  height: 130px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+body .profile .name {
+  margin-top: 8px;
+  font-family: "Rubik", sans-serif;
+  color: black;
+  font-weight: 600;
+  font-size: 22px;
+}
+body .all-activities {
+  width: calc(100% - 60px);
+  direction: rtl;
+  position: relative;
+}
+body .all-activities .activity .date {
+  position: absolute;
+  right: 10px;
+  margin: 0px;
+  top: -5px;
+  padding: 6px 10px;
+  background-color: #f5f3ee;
+  border: 1px solid black;
+}
+body .all-activities .activity .all-lines {
+  padding: 20px 45px;
+}
+body .all-activities .activity .all-lines .line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+body .all-activities .activity .all-lines .line p {
+  text-align: center;
+  margin: 0px;
+}/*# sourceMappingURL=dashboard.css.map */

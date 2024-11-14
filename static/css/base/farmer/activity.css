@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+body {
+  background-color: #f5f3ee;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+  direction: rtl;
+}
+body form {
+  width: 80vw;
+}
+body form .start {
+  margin: 40px 0px 20px 0px;
+  width: 100%;
+  height: 75px;
+  padding: 0px 50px;
+  background-color: #28d031;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+}
+body form .start .start-text,
+body form .start i {
+  color: white;
+  font-size: 36px;
+  margin: 0px;
+  font-weight: 600;
+}
+body form .timer {
+  margin: 0px;
+  font-size: 64px;
+  font-weight: medium;
+  text-align: center;
+  background-color: #d9d9d9;
+  width: 80vw;
+  height: 76px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+body form .finish {
+  margin: 20px 0px;
+  width: 100%;
+  height: 50px;
+  padding: 0px 50px;
+  background-color: #ff0202;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+}
+body form .finish .finish-text,
+body form .finish i {
+  color: white;
+  font-size: 32px;
+  margin: 0px;
+  font-weight: 600;
+}
+body form .finish i {
+  color: black;
+}
+body .all-lines {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+body .all-lines .line {
+  border-radius: 20px;
+  width: 170px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-weight: 500;
+  border: 1px solid black;
+}
+body .all-lines .line .number {
+  background-color: #ff0000;
+  height: 34px;
+  width: 40px;
+  text-align: center;
+  padding-top: 6px;
+  border-radius: 50%;
+  margin: 0px;
+  font-size: 24px;
+}
+body .all-lines .line .status {
+  margin: 0px;
+  font-size: 24px;
+}
+body .all-lines .line.done {
+  background-color: #00ff00;
+  color: white;
+}
+body .all-lines .line.in-progress {
+  background-color: #7aa6f2;
+  color: black;
+}
+body .all-lines .line.in-progress .status {
+  color: black;
+}
+body .all-lines .line.waiting {
+  background-color: #ff0000;
+  color: white;
+}
+body .all-lines .line.waiting .number {
+  background-color: #d9d9d9;
+  color: black;
+}/*# sourceMappingURL=activity.css.map */

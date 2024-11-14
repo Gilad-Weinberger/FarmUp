@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmUp | דף הבית</title>
+    <meta http-equiv="refresh" content="2" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/base/worker/dashboard.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="profile">
+      <img src="{% static 'images/bibi.png' %}" alt="" class="profile-image" />
+      <p class="name">{{ user.full_name }}</p>
+    </div>
+    <div class="all-activities">
+      {% for activity in all_activities %}
+      <div class="activity">
+        <p class="date">{{ activity.date }}</p>
+        <hr />
+        <div class="all-lines">
+          {% for line in activity.line_activities %}
+          <div class="line">
+            <p class="number">
+              <strong>שורה</strong><br />{{ line.line.line_number }}
+            </p>
+            <p class="output">
+              <strong>משקל</strong><br />{{ line.output }} ק"ג
+            </p>
+            <p class="duration">
+              <strong>זמן</strong><br />{{ line.duration }}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% include 'components/navbar.html' %}
+  </body>
+</html>

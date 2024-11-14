@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmUp | דף הבית</title>
+    <link rel="stylesheet" href="{% static 'css/base/farmer/dashboard.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="profile">
+      <img src="{% static 'images/bibi.png' %}" alt="" class="profile-image" />
+      <p class="name">{{ user.full_name }}</p>
+    </div>
+    <div class="main">
+      <a href="{% url 'base:fields_track' %}" class="info">
+        <img src="{% static 'images/field.png' %}" alt="" />
+        <p class="text">מעקב שדות</p>
+      </a>
+      <a href="" class="info">
+        <i class="fa-light fa-user"></i>
+        <p class="text">מעקב עבודה</p>
+      </a>
+    </div>
+    {% include 'components/navbar.html' %}
+  </body>
+</html>

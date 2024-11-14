@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmUp | מעקב שורות</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/base/farmer/lines_track.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="top">
+      <h1 class="title">
+        מעקב שורות: <br />
+        {{ field.name }}
+      </h1>
+    </div>
+    <div class="all-lines">
+      {% for line in field_lines %}
+      <div class="line">
+        <p class="number">{{ line.line_number }}</p>
+        <div class="details">
+          <p class="average">ממוצע x ק"ג לשורה</p>
+          <p class="last">קטיף אחרון y ק"ג</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% include 'components/navbar.html' %}
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmUp | בחירת שדות לפעילות</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/base/farmer/fields_track.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="top"><h1 class="title">בחירת שדות לפעילות</h1></div>
+    <div class="all-fields">
+      {% for field in all_fields %}
+      <a href="{% url 'base:activity' field.field_id %}" class="field">
+        <img src="{% static 'images/field-lines.svg' %}" alt="" class="bg" />
+        <div class="details">
+          <h2 class="field-title">חלקה</h2>
+          <p class="number">{{ field.number }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% include 'components/navbar.html' %}
+  </body>
+</html>

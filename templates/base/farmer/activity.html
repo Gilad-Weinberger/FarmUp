@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmUp | פעילות</title>
+    <link rel="stylesheet" href="{% static 'css/base/farmer/activity.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"
+    />
+    <meta http-equiv="refresh" content="30" />
+  </head>
+  <body>
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" name="start" value="start" class="start">
+        <p class="start-text">התחלה 😀</p>
+        <i class="fa-regular fa-play"></i>
+      </button>
+      <p class="timer" id="timer">00:00:00</p>
+      <button type="submit" name="finish" value="finish" class="finish">
+        <p class="finish-text">סיים 😥</p>
+        <i class="fa-solid fa-square"></i>
+      </button>
+    </form>
+    <div class="all-lines">
+      {% for line_status in field_lines_status %}
+      <div class="line {{ line_status.status_class }}">
+        <p class="number">{{ line_status.line.line_number }}</p>
+        <p class="status">{{ line_status.status }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% include 'components/navbar.html' %}
+    <script>
+      // Get the start time from Django context
+      const startTimeString = "{{ activity.start_time|date:'c' }}"; // Get start time in ISO 8601 format
+      console.log("start_time string from Django:", startTimeString);
+
+      // Check if start_time exists
+      if (!startTimeString) {
+        console.log("No start time, setting timer to 00:00:00");
+        document.getElementById("timer").innerText = "00:00:00"; // Set the timer to 00:00:00
+      } else {
+        // Convert it to a JavaScript Date object
+        const startTime = new Date(startTimeString);
+        console.log("start_time Date object:", startTime);
+
+        // Check if the date is valid
+        if (isNaN(startTime)) {
+          console.error("Invalid start time:", startTime);
+          document.getElementById("timer").innerText = "00:00:00"; // If invalid, set to 00:00:00
+        } else {
+          // Function to format time as HH:MM:SS
+          function formatTime(seconds) {
+            const hours = String(Math.floor(seconds / 3600)).padStart(2, "0");
+            const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(
+              2,
+              "0"
+            );
+            const sec = String(seconds % 60).padStart(2, "0");
+            return `${hours}:${minutes}:${sec}`;
+          }
+
+          // Function to update the stopwatch
+          function updateStopwatch() {
+            const currentTime = new Date().getTime(); // Current time in milliseconds
+            const elapsedTime = Math.floor(
+              (currentTime - startTime.getTime()) / 1000
+            ); // Elapsed time in seconds
+
+            // Update the timer display
+            document.getElementById("timer").innerText =
+              formatTime(elapsedTime);
+          }
+
+          // Start the stopwatch when the page loads
+          setInterval(updateStopwatch, 1000);
+        }
+      }
+    </script>
+  </body>
+</html>

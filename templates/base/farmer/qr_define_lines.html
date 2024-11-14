@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmUp | יצירת ברקוד</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/base/farmer/qr_define_lines.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="top">
+      <h1 class="title">
+        בחירת שורות: <br />
+        שדה {{ field.crop }} ב{{ field.address }}
+      </h1>
+    </div>
+    <form method="post" action="">
+      {% csrf_token %}
+      <button type="button" class="add-all" onclick="toggleAll()">
+        בחר הכל
+      </button>
+      <div class="all-lines">
+        {% for line in field_lines %}
+        <label class="line">
+          <input
+            type="checkbox"
+            name="checked_lines"
+            value="{{ line.id }}"
+            class="line-checkbox"
+            onchange="toggleChecked(this)"
+          />
+          <p class="number">{{ line.line_number }}</p>
+        </label>
+        {% endfor %}
+      </div>
+      <button type="submit" class="submit">שליחה</button>
+    </form>
+    {% include 'components/navbar.html' %}
+    <script>
+      function toggleChecked(checkbox) {
+        checkbox.parentElement.classList.toggle("checked", checkbox.checked);
+      }
+
+      function toggleAll() {
+        const checkboxes = document.querySelectorAll(".line-checkbox");
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = true;
+          checkbox.parentElement.classList.add("checked");
+        });
+      }
+    </script>
+  </body>
+</html>
