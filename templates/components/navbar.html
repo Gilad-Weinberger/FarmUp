@@ -18,7 +18,9 @@
       <a href="{% url 'base:choose_activity_field' %}" class="navbar-button">
         <img src="{% static 'images/record.svg' %}" alt="" class="image" />
       </a>
-      <a href="" class="navbar-button"><i class="fa-light fa-user"></i></a>
+      <a href="{% url 'users:user_profile' %}" class="navbar-button"
+        ><i class="fa-light fa-user"></i
+      ></a>
     </div>
     {% else %}
     <div class="navbar worker">
@@ -28,7 +30,9 @@
       <a href="" class="navbar-button">
         <img src="{% static 'images/record.svg' %}" alt="" class="image" />
       </a>
-      <a href="" class="navbar-button"><i class="fa-light fa-user"></i></a>
+      <a href="{% url 'users:user_profile' %}" class="navbar-button"
+        ><i class="fa-light fa-user"></i
+      ></a>
     </div>
     {% endif %}
   </body>
